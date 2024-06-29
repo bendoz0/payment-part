@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {TextInput, Text, StyleSheet, View, TouchableOpacity} from "react-native";
 import {Dropdown, styles} from "@/app/flusso-pagamento/Components/ListaTarghe";
-import {router} from "expo-router";
-import {getTarga, InsertTarga} from "@/app/flusso-pagamento/Query/Query_TargheUtente";
+import {router, Stack} from "expo-router";
+// import {getTarga, InsertTarga} from "@/app/flusso-pagamento/Query/Query_TargheUtente";
 
 
 const useTarghe = (id_utente) => {
@@ -11,9 +11,9 @@ const useTarghe = (id_utente) => {
 
     useEffect(() => {
         (async () => {
-            const res = await getTarga(id_utente)
-            // @ts-ignore
-            setTarghe(res)
+            // const res = await getTarga(id_utente)
+            // // @ts-ignore
+            // setTarghe(res)
         })();
     }, []);
     return {loading, targhe};
@@ -29,20 +29,32 @@ const FirstPage = () => {
     const insertTarga = async () => {
         try {
             console.log(input);
-            await InsertTarga(1, input);
+            // await InsertTarga(1, input);
         } catch (error) {
             console.error('Failed to insert targa:', error);
         }
     };
 
     const handlePress = async () => {
-        await insertTarga();
+        // await insertTarga();
         router.push("/flusso-pagamento/Pagina-2");
     };
 
     return (
         <View style={styless.container}>
 
+            <Stack.Screen options={{
+                headerStyle: {
+                    backgroundColor: "#3895ff"
+                },
+                headerTitleAlign: "center",
+                headerTitleStyle: {
+                    color: "white",
+                    fontSize: 32,
+                    fontWeight: "heavy"
+                },
+                title: "Macchina",
+            }}/>
             <Text style={styless.label}>Seleziona la targa dell'auto parcheggiata: </Text>
             <Dropdown options={targhe} onSelect={handleSelect}/>
 

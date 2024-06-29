@@ -1,22 +1,26 @@
-import React, {useState, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
+    Button,
+    ImageBackground,
     SafeAreaView,
     ScrollView,
-    View,
+    StyleSheet,
     Text,
     TextInput,
     TouchableOpacity,
-    StyleSheet, Button, ImageBackground
+    View
 } from 'react-native';
-import {router} from "expo-router";
+import {router, Stack} from "expo-router";
 // @ts-ignore
 import backgroundImage from './assets/BG_car.jpg';
+import {DataContext} from "@/app/flusso-pagamento/context/DataProvider";
 
 
 const ButtonPagamento = ({tariffa = 10}) => {
 
     const [parkingTime, setParkingTime] = useState('');
     const [totalToPay, setTotalToPay] = useState(0);
+    const {setDuration} = useContext(DataContext);
 
     useEffect(() => {
         const time = parseInt(parkingTime);
@@ -24,6 +28,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
             const total = (time / 60) * tariffa;
             // @ts-ignore
             setTotalToPay(total.toFixed(2));
+            setDuration(time * 60);
         } else {
             setTotalToPay(0.00);
         }
@@ -31,6 +36,18 @@ const ButtonPagamento = ({tariffa = 10}) => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Stack.Screen options={{
+                headerStyle: {
+                    backgroundColor: "#3895ff"
+                },
+                headerTitleAlign: "center",
+                headerTitleStyle: {
+                    color: "white",
+                    fontSize: 32,
+                    fontWeight: "heavy"
+                },
+                title: "Durata",
+            }}/>
             <ImageBackground source={backgroundImage} resizeMode="cover" style={{width: '100%', height: '100%'}}>
                 <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
                     <View style={styles.steps}>
@@ -40,29 +57,33 @@ const ButtonPagamento = ({tariffa = 10}) => {
                         <Text style={styles.stepIncomplete}>○</Text>
                         <Text style={styles.stepIncomplete}>○</Text>
                     </View>
-                    <View style={styles.section}>
-                        <Text style={styles.label}>Impostare il tempo della sosta:</Text>
-                        <TextInput
-                            style={styles.textArea}
-                            placeholder="How many minutes do you stay away?"
-                            keyboardType="numeric"
-                            multiline={false}
-                            onChangeText={setParkingTime}
-                            maxLength={5}
-                            value={parkingTime}
-                        />
-                    </View>
-                    <View style={styles.section}>
-                        <Text style={styles.label}>Totale da pagare :</Text>
-                        <View style={styles.resultBox}>
-                            <Text style={styles.resultText}>{totalToPay}€</Text>
+                    <View style={styles.section_group}>
+
+                        <View style={styles.section}>
+                            <Text style={styles.label}>Impostare il tempo della sosta:</Text>
+                            <TextInput
+                                style={styles.textArea}
+                                placeholder="How many minutes do you stay away?"
+                                keyboardType="numeric"
+                                multiline={false}
+                                onChangeText={setParkingTime}
+                                maxLength={5}
+                                value={parkingTime}
+                            />
                         </View>
-                    </View>
-                    <View style={styles.section}>
-                        <TouchableOpacity style={styles.nextButton}>
-                            <Button title={"Vai al pagamento"}
-                                    onPress={() => router.push("/flusso-pagamento/Pagina-3")}/>
-                        </TouchableOpacity>
+                        <View style={styles.section}>
+                            <Text style={styles.label}>Totale da pagare :</Text>
+                            <View style={styles.resultBox}>
+                                <Text style={styles.resultText}>{totalToPay}€</Text>
+                            </View>
+                        </View>
+                        <View style={styles.section}>
+                            <TouchableOpacity style={styles.nextButton}>
+                                <Button title={"Vai al pagamento"}
+                                        onPress={() => { parkingTime !== "" &&
+                                            router.push("/flusso-pagamento/Pagina-3")}}/>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </ScrollView>
             </ImageBackground>
