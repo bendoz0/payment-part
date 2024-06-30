@@ -22,9 +22,9 @@ const Dropdown = ({options, onSelect}) => {
                     {options?.map((option, index) => {
                             console.log("option", option)
                             return (
-                                <TouchableOpacity key={index} onPress={() => handleSelect(option?.targa)}
+                                <TouchableOpacity key={index} onPress={() => handleSelect(option)}
                                                   style={styles.dropdownItem}>
-                                    <Text style={styles.dropdownItemText}>{option?.targa}</Text>
+                                    <Text style={styles.dropdownItemText}>{option}</Text>
                                 </TouchableOpacity>
                             )
                         }

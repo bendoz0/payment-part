@@ -7,7 +7,7 @@ import {ApplicationProvider} from "@ui-kitten/components";
 import * as eva from '@eva-design/eva';
 import {Stack} from "expo-router";
 
-export const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY as string);
+export const stripePromise = loadStripe(String(process.env.PUBLISHABLE_KEY));
 export default function Pagina3() {
     return (
         <>

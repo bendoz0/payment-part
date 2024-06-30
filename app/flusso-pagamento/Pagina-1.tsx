@@ -11,9 +11,8 @@ const useTarghe = (id_utente) => {
 
     useEffect(() => {
         (async () => {
-            // const res = await getTarga(id_utente)
-            // // @ts-ignore
-            // setTarghe(res)
+            const res = await fetch("data.json")
+            console.log("res", res)
         })();
     }, []);
     return {loading, targhe};
@@ -56,7 +55,7 @@ const FirstPage = () => {
                 title: "Macchina",
             }}/>
             <Text style={styless.label}>Seleziona la targa dell'auto parcheggiata: </Text>
-            <Dropdown options={targhe} onSelect={handleSelect}/>
+            <Dropdown options={["ABAVB", "CDCDC", "DFDFDF"]} onSelect={handleSelect}/>
 
             <Text style={[styless.label]}>Inserisci una nuova targa: </Text>
             <TextInput style={styless.textArea} placeholder="AA 000 AA" value={input} onChangeText={text => setInput(text)}/>
