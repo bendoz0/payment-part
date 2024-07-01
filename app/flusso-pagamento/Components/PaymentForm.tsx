@@ -85,8 +85,8 @@ const PaymentForm = () => {
                 >
                     Pay with Card
                 </Button>
-                {paymentError && <Text style={styles.errorMessage}>{paymentError}</Text>}
-                {paymentSuccess && <Text style={styles.successMessage}>Payment successful!</Text>}
+                {paymentError ? <Text style={styles.errorMessage}>{paymentError}</Text>: null}
+                {paymentSuccess ? <Text style={styles.successMessage}>Payment successful!</Text>: null}
             </Card>
 
             <Card style={styles.card}>

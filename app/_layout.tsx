@@ -9,7 +9,7 @@ export default function RootLayout() {
 
     return (
         <DataContext.Provider value={{duration, setDuration}}>
-            <ApplicationProvider {...eva} theme={eva.light}> {/* o eva.dark o il tuo tema personalizzato */}
+            <ApplicationProvider {...eva} theme={eva.light}>
 
                 <Stack>
                 <Stack.Screen name="index"/>

@@ -17,7 +17,7 @@ const Dropdown = ({options, onSelect} : {options: string[], onSelect: () => void
             <TouchableOpacity onPress={() => setIsOpen(!isOpen)} style={styles.dropdownButton}>
                 <Text style={styles.dropdownButtonText}>{selectedOption || 'Seleziona la targa'}</Text>
             </TouchableOpacity>
-            {isOpen && (
+            {isOpen ? (
                 <View style={styles.dropdownMenu}>
                     {options?.map((option, index) => {
                             console.log("option", option)
@@ -30,7 +30,7 @@ const Dropdown = ({options, onSelect} : {options: string[], onSelect: () => void
                         }
                     )}
                 </View>
-            )}
+            ): null}
         </View>
     );
 };
@@ -44,14 +44,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#f0f0f0',
         borderRadius: 5,
         alignItems: 'center',
+        width: 200
     },
     dropdownButtonText: {
+        textAlign: "center",
         fontSize: 22,
         color: 'black',
         borderColor: 'black',
         borderWidth: 1,
         padding: 8,
-        borderRadius: 5
+        borderRadius: 5,
+        width: 200
+
 
     },
     dropdownMenu: {

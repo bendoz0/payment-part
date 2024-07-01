@@ -81,7 +81,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
                                 <Button
                                     title={"Vai al pagamento"}
                                     onPress={() => {
-                                        parkingTime !== null && router.push("/flusso-pagamento/Pagina-3")
+                                        parkingTime !== null ? router.push("/flusso-pagamento/Pagina-3") : null
                                     }}
                                 />
                             </TouchableOpacity>

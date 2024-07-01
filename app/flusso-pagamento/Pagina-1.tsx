@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {TextInput, Text, StyleSheet, View, TouchableOpacity} from "react-native";
 import {Dropdown, styles} from "@/app/flusso-pagamento/Components/ListaTarghe";
-import {router} from "expo-router";
+import {router, Stack} from "expo-router";
+import {HeaderBackButton} from "@react-navigation/elements";
 // import {getTarga, InsertTarga} from "@/app/flusso-pagamento/Query/Query_TargheUtente";
 
 
@@ -45,7 +46,20 @@ const FirstPage = () => {
 
     return (
         <View style={styless.container}>
+            <Stack.Screen options={{
+                title: "Macchina",
+                headerTitleAlign: "center",
+                headerTitleStyle: {
+                    fontWeight: "bold",
+                    fontSize: 32,
+                    color: "white"
+                },
+                headerStyle: {
+                    backgroundColor: "#3badff"
+                },
+                // headerLeft: <HeaderBackButton tintColor={'white'} onPress={() => {navigation.navigate('SearchPage')}}/>,
 
+            }}/>
             <Text style={styless.label}>Seleziona la targa dell'auto parcheggiata: </Text>
             <Dropdown options={["ABSBS", "CSDCSC"]} onSelect={handleSelect}/>
 
