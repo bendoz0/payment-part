@@ -68,7 +68,7 @@ const FirstPage = () => {
 
                 <View style={style.section}>
                     <Text style={style.label}>Seleziona la targa dell'auto parcheggiata: </Text>
-                    <Dropdown options={["ABSBS", "CSDCSC","ABSBS", "CSDCSC"]} onSelect={handleSelect}/>
+                    <Dropdown options={["EJ896KA", "GH494DP","HT599LM", "DS287UT"]} onSelect={handleSelect}/>
                 </View>
 
                 <View style={style.section}>
