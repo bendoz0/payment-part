@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {TextInput, Text, StyleSheet, View, TouchableOpacity, ImageBackground} from "react-native";
+import {TextInput, Text, StyleSheet, View, TouchableOpacity, ImageBackground, Button} from "react-native";
 import {Dropdown} from "@/app/flusso-pagamento/Components/ListaTarghe";
-import {router} from "expo-router";
+import {router, Stack} from "expo-router";
 // @ts-ignore
 import backgroundImage from './assets/bg-1.jpg';
 // import {getTarga, InsertTarga} from "@/app/flusso-pagamento/Query/Query_TargheUtente";
 import {style} from "@/app/flusso-pagamento/Components/Stili"
-
 
 
 // const useTarghe = (id_utente) => {
@@ -47,31 +46,43 @@ const FirstPage = () => {
         router.push("/flusso-pagamento/Pagina-2");
     };
 
+
     return (
-        <View style={style.sfondo}>
-        <ImageBackground source={backgroundImage} resizeMode="cover" style={{width: '100%', height: '100%'}}>
-            <View style={style.steps}>
-                <Text style={style.stepCurrent}>○</Text>
-                <Text style={style.stepIncomplete}>○</Text>
-                <Text style={style.stepIncomplete}>○</Text>
-                <Text style={style.stepIncomplete}>○</Text>
-            </View>
-            <View style={style.blocco1}>
-                <Text style={style.titoli}>Seleziona la targa dell'auto parcheggiata: </Text>
-                <Dropdown options={["ABSBS", "CSDCSC"]} onSelect={handleSelect}/>
-            </View>
+        <View style={style.container}>
 
-            <View style={style.blocco2}>
-                <Text style={style.titoli}>Inserisci una nuova targa: </Text>
-                <TextInput style={style.input} editable={isEditable}  placeholder="AA 000 AA" value={input} onChangeText={text => setInput(text)}/>
-            </View>
+            <Stack.Screen
+                options={{
+                    headerStyle: {backgroundColor: "#3895ff"},
+                    headerTitleAlign: "center",
+                    headerTitleStyle: {color: "white", fontSize: 32, fontWeight: "heavy"},
+                    title: "Targhe",
+                }}
+            />
+            <ImageBackground source={backgroundImage} resizeMode="cover" style={{width: '100%', height: '100%'}}>
+                <View style={style.steps}>
+                    <Text style={style.stepCurrent}>○</Text>
+                    <Text style={style.stepIncomplete}>○</Text>
+                    <Text style={style.stepIncomplete}>○</Text>
+                    <Text style={style.stepIncomplete}>○</Text>
+                </View>
 
-            <View style={style.blocco3}>
-                <TouchableOpacity  onPress={handlePress}>
-                    <Text style={style.button}>Prosegui</Text>
-                </TouchableOpacity>
-            </View>
-        </ImageBackground>
+                <View style={style.section}>
+                    <Text style={style.label}>Seleziona la targa dell'auto parcheggiata: </Text>
+                    <Dropdown options={["ABSBS", "CSDCSC","ABSBS", "CSDCSC"]} onSelect={handleSelect}/>
+                </View>
+
+                <View style={style.section}>
+                    <Text style={style.label}>Inserisci una nuova targa: </Text>
+                    <TextInput style={style.textArea} editable={isEditable} placeholder="AA 000 AA" value={input}
+                               onChangeText={text => setInput(text)}/>
+                </View>
+
+                <View style={style.section}>
+                    <TouchableOpacity style={style.nextButton} onPress={handlePress}>
+                        <Button title={'Prosegui'} onPress={() => input !== "" || !isEditable ? router.push("/flusso-pagamento/Pagina-2"): null}/>
+                    </TouchableOpacity>
+                </View>
+            </ImageBackground>
         </View>
 
     )
