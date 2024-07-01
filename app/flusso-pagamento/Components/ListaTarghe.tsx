@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-const Dropdown = ({options, onSelect}) => {
+const Dropdown = ({options, onSelect} : {options: string[], onSelect: () => void}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
     const handleSelect = (option: string) => {
         setSelectedOption(option);
         setIsOpen(false);
-        onSelect(option);
+        onSelect();
     };
     console.log("options", options);
 

@@ -1,29 +1,33 @@
 import React, {useEffect, useState} from "react";
 import {TextInput, Text, StyleSheet, View, TouchableOpacity} from "react-native";
 import {Dropdown, styles} from "@/app/flusso-pagamento/Components/ListaTarghe";
-import {router, Stack} from "expo-router";
+import {router} from "expo-router";
 // import {getTarga, InsertTarga} from "@/app/flusso-pagamento/Query/Query_TargheUtente";
 
 
-const useTarghe = (id_utente) => {
-    const [loading, setLoading] = useState(true);
-    const [targhe, setTarghe] = useState([]);
-
-    useEffect(() => {
-        (async () => {
-            const res = await fetch("data.json")
-            console.log("res", res)
-        })();
-    }, []);
-    return {loading, targhe};
-}
+// const useTarghe = (id_utente) => {
+//     const [loading, setLoading] = useState(true);
+//     const [targhe, setTarghe] = useState([]);
+//
+//     // useEffect(() => {
+//     //     (async () => {
+//     //         // const res = await getTarga(id_utente)
+//     //         // @ts-ignore
+//     //         setTarghe(res)
+//     //     })();
+//     // }, []);
+//     // return {loading, targhe};
+// }
 
 const FirstPage = () => {
-    const handleSelect = (option: string) => {
-    };
-    const {loading, targhe} = useTarghe(1)
-
+    const [isEditable, setIsEditable] = useState(true);
     const [input, setInput] = useState("");
+    const handleSelect = () => {
+        setInput("")
+        setIsEditable(false)
+    };
+    // const {loading, targhe} = useTarghe(1)
+
 
     const insertTarga = async () => {
         try {
@@ -35,30 +39,18 @@ const FirstPage = () => {
     };
 
     const handlePress = async () => {
-        // await insertTarga();
+        await insertTarga();
         router.push("/flusso-pagamento/Pagina-2");
     };
 
     return (
         <View style={styless.container}>
 
-            <Stack.Screen options={{
-                headerStyle: {
-                    backgroundColor: "#3895ff"
-                },
-                headerTitleAlign: "center",
-                headerTitleStyle: {
-                    color: "white",
-                    fontSize: 32,
-                    fontWeight: "heavy"
-                },
-                title: "Macchina",
-            }}/>
             <Text style={styless.label}>Seleziona la targa dell'auto parcheggiata: </Text>
-            <Dropdown options={["ABAVB", "CDCDC", "DFDFDF"]} onSelect={handleSelect}/>
+            <Dropdown options={["ABSBS", "CSDCSC"]} onSelect={handleSelect}/>
 
             <Text style={[styless.label]}>Inserisci una nuova targa: </Text>
-            <TextInput style={styless.textArea} placeholder="AA 000 AA" value={input} onChangeText={text => setInput(text)}/>
+            <TextInput editable={isEditable} style={styless.textArea} placeholder="AA 000 AA" value={input} onChangeText={text => setInput(text)}/>
 
             <TouchableOpacity style={styless.nextBtn} onPress={handlePress}>
                 <Text style={{color: "white"}} >Prosegui</Text>
