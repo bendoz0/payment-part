@@ -10,7 +10,7 @@ const style = StyleSheet.create({
     section: {marginVertical: 10, alignItems: 'center',},
     label: {fontSize: 18, color: '#333', marginBottom: 10, fontWeight: "bold",},
     textArea: {
-        width: '30%',
+        width: '20%',
         height: 50,
         borderColor: '#0000fc',
         borderWidth: 1,
@@ -18,6 +18,7 @@ const style = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 5,
         backgroundColor: '#f0f0f0',
+        textAlign: 'center',
     },
     resultBox: {
         width: '30%',

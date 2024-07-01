@@ -73,7 +73,7 @@ const FirstPage = () => {
 
                 <View style={style.section}>
                     <Text style={style.label}>Inserisci una nuova targa: </Text>
-                    <TextInput style={style.textArea} editable={isEditable} placeholder="AA 000 AA" value={input}
+                    <TextInput style={style.textArea} editable={isEditable} placeholder="AA000AA" value={input}
                                onChangeText={text => setInput(text)}/>
                 </View>
 
