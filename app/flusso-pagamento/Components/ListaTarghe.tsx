@@ -20,7 +20,7 @@ const Dropdown = ({options, onSelect} : {options: string[], onSelect: () => void
                 <Text style={style.textbarramenu}>{selectedOption || 'Seleziona la targa'}</Text>
             </TouchableOpacity>
             {isOpen ? (
-                <View style={styles.dropdownMenu}>
+                <View >
                     {options?.map((option, index) => {
                             console.log("option", option)
                             return (

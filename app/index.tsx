@@ -6,11 +6,7 @@ const Index = () => {
     return (
         <View>
             <View style={styles.container}>
-                <Button title={"Pagina 1"} onPress={() => router.push("/flusso-pagamento/Pagina-1")}/>
-                <Button title={"Pagina 2"} onPress={() => router.push("/flusso-pagamento/Pagina-2")}/>
-                <Button title={"Pagina 3"} onPress={() => router.push("/flusso-pagamento/Pagina-3")}/>
-                <Button title={"Pagina 4"} onPress={() => router.push("/flusso-pagamento/Pagina-4")}/>
-                <Button title={"Pagina 5"} onPress={() => router.push("/flusso-pagamento/Pagina-5")}/>
+                <Button title={"Vai al Pagamento"} onPress={() => router.push("/flusso-pagamento/Pagina-1")}/>
             </View>
         </View>
     )
