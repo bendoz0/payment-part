@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {TextInput, Text, StyleSheet, View, TouchableOpacity} from "react-native";
+import {TextInput, Text, StyleSheet, View, TouchableOpacity, ImageBackground} from "react-native";
 import {Dropdown} from "@/app/flusso-pagamento/Components/ListaTarghe";
 import {router} from "expo-router";
+// @ts-ignore
+import backgroundImage from './assets/bg-1.jpg';
 // import {getTarga, InsertTarga} from "@/app/flusso-pagamento/Query/Query_TargheUtente";
 import {style} from "@/app/flusso-pagamento/Components/Stili"
 
@@ -47,6 +49,13 @@ const FirstPage = () => {
 
     return (
         <View style={style.sfondo}>
+        <ImageBackground source={backgroundImage} resizeMode="cover" style={{width: '100%', height: '100%'}}>
+            <View style={style.steps}>
+                <Text style={style.stepCurrent}>○</Text>
+                <Text style={style.stepIncomplete}>○</Text>
+                <Text style={style.stepIncomplete}>○</Text>
+                <Text style={style.stepIncomplete}>○</Text>
+            </View>
             <View style={style.blocco1}>
                 <Text style={style.titoli}>Seleziona la targa dell'auto parcheggiata: </Text>
                 <Dropdown options={["ABSBS", "CSDCSC"]} onSelect={handleSelect}/>
@@ -62,7 +71,9 @@ const FirstPage = () => {
                     <Text style={style.button}>Prosegui</Text>
                 </TouchableOpacity>
             </View>
+        </ImageBackground>
         </View>
+
     )
 }
 export default FirstPage
