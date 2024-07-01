@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {TextInput, Text, StyleSheet, View, TouchableOpacity} from "react-native";
-import {Dropdown, styles} from "@/app/flusso-pagamento/Components/ListaTarghe";
+import {TextInput, Text, StyleSheet, View, TouchableOpacity, ImageBackground, Button} from "react-native";
+import {Dropdown} from "@/app/flusso-pagamento/Components/ListaTarghe";
 import {router, Stack} from "expo-router";
-import {HeaderBackButton} from "@react-navigation/elements";
+// @ts-ignore
+import backgroundImage from './assets/bg-1.jpg';
 // import {getTarga, InsertTarga} from "@/app/flusso-pagamento/Query/Query_TargheUtente";
+import {style} from "@/app/flusso-pagamento/Components/Stili"
 
 
 // const useTarghe = (id_utente) => {
@@ -44,63 +46,45 @@ const FirstPage = () => {
         router.push("/flusso-pagamento/Pagina-2");
     };
 
+
     return (
-        <View style={styless.container}>
-            <Stack.Screen options={{
-                title: "Macchina",
-                headerTitleAlign: "center",
-                headerTitleStyle: {
-                    fontWeight: "bold",
-                    fontSize: 32,
-                    color: "white"
-                },
-                headerStyle: {
-                    backgroundColor: "#3badff"
-                },
-                // headerLeft: <HeaderBackButton tintColor={'white'} onPress={() => {navigation.navigate('SearchPage')}}/>,
+        <View style={style.container}>
 
-            }}/>
-            <Text style={styless.label}>Seleziona la targa dell'auto parcheggiata: </Text>
-            <Dropdown options={["ABSBS", "CSDCSC"]} onSelect={handleSelect}/>
+            <Stack.Screen
+                options={{
+                    headerStyle: {backgroundColor: "#3895ff"},
+                    headerTitleAlign: "center",
+                    headerTitleStyle: {color: "white", fontSize: 32, fontWeight: "heavy"},
+                    title: "Targhe",
+                }}
+            />
+            <ImageBackground source={backgroundImage} resizeMode="cover" style={{width: '100%', height: '100%'}}>
+                <View style={style.steps}>
+                    <Text style={style.stepCurrent}>○</Text>
+                    <Text style={style.stepIncomplete}>○</Text>
+                    <Text style={style.stepIncomplete}>○</Text>
+                    <Text style={style.stepIncomplete}>○</Text>
+                </View>
 
-            <Text style={[styless.label]}>Inserisci una nuova targa: </Text>
-            <TextInput editable={isEditable} style={styless.textArea} placeholder="AA 000 AA" value={input} onChangeText={text => setInput(text)}/>
+                <View style={style.section}>
+                    <Text style={style.label}>Seleziona la targa dell'auto parcheggiata: </Text>
+                    <Dropdown options={["EJ896KA", "GH494DP","HT599LM", "DS287UT"]} onSelect={handleSelect}/>
+                </View>
 
-            <TouchableOpacity style={styless.nextBtn} onPress={handlePress}>
-                <Text style={{color: "white"}} >Prosegui</Text>
-            </TouchableOpacity>
+                <View style={style.section}>
+                    <Text style={style.label}>Inserisci una nuova targa: </Text>
+                    <TextInput style={style.textArea} editable={isEditable} placeholder="AA000AA" value={input}
+                               onChangeText={text => setInput(text)}/>
+                </View>
+
+                <View style={style.section}>
+                    <TouchableOpacity style={style.nextButton} onPress={handlePress}>
+                        <Button title={'Prosegui'} onPress={() => input !== "" || !isEditable ? router.push("/flusso-pagamento/Pagina-2"): null}/>
+                    </TouchableOpacity>
+                </View>
+            </ImageBackground>
         </View>
+
     )
 }
 export default FirstPage
-
-const styless = StyleSheet.create({
-    container: {
-        top: 50,
-        alignItems: 'center',
-        gap: 16,
-    },
-    label: {
-        fontSize: 18,
-        color: 'blue',
-        marginBottom: 10,
-        fontWeight: "bold",
-    },
-    textArea: {
-        width: '20%',
-        height: 50,
-        borderColor: '#ccc',
-        borderWidth: 1,
-        borderRadius: 5,
-        paddingHorizontal: 10,
-        paddingVertical: 5,
-        backgroundColor: '#f0f0f0',
-        textAlign: 'center'
-    },
-    nextBtn: {
-        top: 100,
-        padding: 12,
-        backgroundColor: 'blue', //#155e85
-        borderRadius: 6,
-    }
-})
