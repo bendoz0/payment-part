@@ -30,7 +30,7 @@ function Pagina5() {
                     <Card style={style.card}>
 
                         <Text style={style.heading}>
-                            Scade fra
+                            Expires in
                         </Text>
                         <CountdownCircleTimer
                             isPlaying

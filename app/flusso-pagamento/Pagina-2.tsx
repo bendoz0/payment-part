@@ -49,7 +49,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
                     headerStyle: {backgroundColor: "#3895ff"},
                     headerTitleAlign: "center",
                     headerTitleStyle: {color: "white", fontSize: 32, fontWeight: "heavy"},
-                    title: "Durata",
+                    title: "Stopover",
                 }}
             />
             <ImageBackground source={backgroundImage} resizeMode="cover" style={{width: '100%', height: '100%'}}>
@@ -63,7 +63,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
                     </View>
                     <View>
                         <View style={style.section}>
-                            <Text style={style.label}>Impostare il tempo della sosta:</Text>
+                            <Text style={style.label}>Set the stop time:</Text>
                             <TextInput
                                 style={style.textArea}
                                 placeholder="How many minutes do you stay away?"
@@ -74,7 +74,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
                             />
                         </View>
                         <View style={style.section}>
-                            <Text style={style.label}>Totale da pagare :</Text>
+                            <Text style={style.label}>Amount due:</Text>
                             <View style={style.resultBox}>
                                 <Text style={style.resultText}>{totalToPay}€</Text>
                             </View>
@@ -82,7 +82,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
                         <View style={style.section}>
                             <TouchableOpacity style={style.nextButton}>
                                 <Button
-                                    title={"Vai al pagamento"}
+                                    title={"Go to payment"}
                                     onPress={() => {
                                         parkingTime !== null ? router.push("/flusso-pagamento/Pagina-3") : null
                                     }}

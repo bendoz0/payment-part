@@ -2,11 +2,9 @@ import React from 'react';
 import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from "@stripe/react-stripe-js";
 import PaymentForm from "@/app/flusso-pagamento/Components/PaymentForm";
-import {ImageBackground, Text, View} from 'react-native'
 import {ApplicationProvider} from "@ui-kitten/components";
 import * as eva from '@eva-design/eva';
 import {Stack} from "expo-router";
-import backgroundImage from './assets/bg-1.jpg';
 import {style} from "@/app/flusso-pagamento/Components/Stili";
 
 

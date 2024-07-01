@@ -55,7 +55,7 @@ const FirstPage = () => {
                     headerStyle: {backgroundColor: "#3895ff"},
                     headerTitleAlign: "center",
                     headerTitleStyle: {color: "white", fontSize: 32, fontWeight: "heavy"},
-                    title: "Targhe",
+                    title: "License Plate",
                 }}
             />
             <ImageBackground source={backgroundImage} resizeMode="cover" style={{width: '100%', height: '100%'}}>
@@ -67,19 +67,19 @@ const FirstPage = () => {
                 </View>
 
                 <View style={style.section}>
-                    <Text style={style.label}>Seleziona la targa dell'auto parcheggiata: </Text>
+                    <Text style={style.label}>Select the license plate of the parked car: </Text>
                     <Dropdown options={["EJ896KA", "GH494DP","HT599LM", "DS287UT"]} onSelect={handleSelect}/>
                 </View>
 
                 <View style={style.section}>
-                    <Text style={style.label}>Inserisci una nuova targa: </Text>
+                    <Text style={style.label}>Enter a new license plate:</Text>
                     <TextInput style={style.textArea} editable={isEditable} placeholder="AA000AA" value={input}
                                onChangeText={text => setInput(text)}/>
                 </View>
 
                 <View style={style.section}>
                     <TouchableOpacity style={style.nextButton} onPress={handlePress}>
-                        <Button title={'Prosegui'} onPress={() => input !== "" || !isEditable ? router.push("/flusso-pagamento/Pagina-2"): null}/>
+                        <Button title={'Next'} onPress={() => input !== "" || !isEditable ? router.push("/flusso-pagamento/Pagina-2"): null}/>
                     </TouchableOpacity>
                 </View>
             </ImageBackground>

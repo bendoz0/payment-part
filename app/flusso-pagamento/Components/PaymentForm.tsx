@@ -52,7 +52,7 @@ const PaymentForm = () => {
                     status='success'
                     {...successRadioState}
                 >
-                    Usa metodo di pagamento predefinito
+                    Use default payment method
                 </Radio>
                 <Button
                     onPress={() => {
