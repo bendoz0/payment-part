@@ -74,7 +74,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
                             />
                         </View>
                         <View style={style.section}>
-                            <Text style={style.label}>Amount due:</Text>
+                            <Text style={style.label}>Total amount:</Text>
                             <View style={style.resultBox}>
                                 <Text style={style.resultText}>{totalToPay}€</Text>
                             </View>

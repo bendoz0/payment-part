@@ -50,12 +50,24 @@ function Pagina5() {
                                     <>
                                         {duration ?
                                             <>
-                                                <Text style={{
-                                                    fontSize: 32,
-                                                    padding: 16,
-                                                    marginBottom: 16
-                                                }}>Remaining</Text>
-                                                <Text style={{fontSize: 42}}>{`${hours}:${minutes}:${seconds}`}</Text>
+                                                {
+                                                    remainingTime !== 0 ?
+                                                        <>
+                                                        <Text style={{
+                                                            fontSize: 32,
+                                                            padding: 16,
+                                                            marginBottom: 16
+                                                        }}>Remaining</Text>
+                                                        <Text
+                                                            style={{fontSize: 42}}>{`${hours}:${minutes}:${seconds}`}</Text>
+                                                        </>:
+                                                        <Text style={{
+                                                            fontSize: 32,
+                                                            padding: 16,
+                                                            marginBottom: 16
+                                                        }}>Time's Up!!</Text>
+
+                                                }
                                             </> :
                                             <Text style={{textAlign: "center"}}>User has not entered the duration.
                                                 <hr/>

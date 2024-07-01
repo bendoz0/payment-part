@@ -6,6 +6,7 @@ import backgroundImage from './flusso-pagamento/assets/parcheggi.png';
 import {style} from "@/app/flusso-pagamento/Components/Stili"
 import {FontAwesome5} from '@expo/vector-icons';
 import {Pressable} from "expo-router/build/views/Pressable";
+import {components} from "@eva-design/eva/mapping";
 
 
 const Index = () => {
@@ -33,7 +34,7 @@ const Index = () => {
                 </Pressable>
                 <View style={{
                     position: "absolute",
-                    height: 200,
+                    height: 169,
                     width: "100%",
                     borderTopRightRadius: 69,
                     borderTopLeftRadius: 69,
@@ -45,11 +46,13 @@ const Index = () => {
                     justifyContent: "center",
                     gap: 8
                 }}>
-                    <Text style={{color: "#3895ff", fontWeight: "bold", fontSize: 32}}>You've arrived to the destination</Text>
+                    <Text style={{color: "#3895ff", fontWeight: "bold", fontSize: 32}}>You've arrived to the
+                        destination</Text>
                     <Pressable onPress={() => router.push("/flusso-pagamento/Pagina-1")}
                                style={{display: "flex", flexDirection: "row", alignItems: "center", gap: 8}}>
                         <Text style={{
-                            fontSize: 24,
+                            textAlign: "center",
+                            fontSize: 16,
                             fontWeight: "bold",
                             color: "white",
                             textShadowColor: '#000000',

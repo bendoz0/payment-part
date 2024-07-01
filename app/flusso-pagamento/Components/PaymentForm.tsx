@@ -48,7 +48,7 @@ const PaymentForm = () => {
 
             <Card>
                 <Radio
-                    style={styles.radio}
+                    // style={styles.radio}
                     status='success'
                     {...successRadioState}
                 >
