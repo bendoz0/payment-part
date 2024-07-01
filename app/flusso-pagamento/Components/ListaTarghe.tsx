@@ -24,8 +24,8 @@ const Dropdown = ({options, onSelect} : {options: string[], onSelect: () => void
                     {options?.map((option, index) => {
                             console.log("option", option)
                             return (
-                                <TouchableOpacity key={index} onPress={() => handleSelect(option)}>
-                                    <Text >{option}</Text>
+                                <TouchableOpacity  key={index} onPress={() => handleSelect(option)}>
+                                    <Text style={style.elementomenu}>{option}</Text>
                                 </TouchableOpacity>
                             )
                         }

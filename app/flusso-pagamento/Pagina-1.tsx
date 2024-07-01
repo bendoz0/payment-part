@@ -59,7 +59,7 @@ const FirstPage = () => {
 
             <View style={style.blocco3}>
                 <TouchableOpacity  onPress={handlePress}>
-                    <Text >Prosegui</Text>
+                    <Text style={style.button}>Prosegui</Text>
                 </TouchableOpacity>
             </View>
         </View>

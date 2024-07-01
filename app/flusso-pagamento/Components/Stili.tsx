@@ -44,11 +44,26 @@ const style = StyleSheet.create({
         fontSize: 20,
     },
     menu:{
-        backgroundColor: '#0B3B57FF',
+        backgroundColor: '#174b69',
+        borderRadius: 10,
     },
     elementomenu:{
-        backgroundColor: '#10e766',
+        color: '#89bedc',
+        padding: 10,
+        fontSize: 16,
+        textAlign: 'center',
     },
+    button:{
+        backgroundColor: '#0B3B57FF',
+        color: '#89bedc',
+        height: 40,
+        width: 80,
+        borderRadius: 10,
+        fontSize: 16,
+        textAlign: 'center',
+        justifyContent: 'center',
+    },
+
 
     dropdownButton: {
         padding: 10,
