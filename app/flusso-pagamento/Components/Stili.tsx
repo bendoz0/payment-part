@@ -1,14 +1,18 @@
 import {StyleSheet} from "react-native";
+import {bold} from "colorette";
 
 const style = StyleSheet.create({
     container: {flex: 1,},
     scrollView: {paddingHorizontal: 20,},
-    steps: {flexDirection: 'row', justifyContent: 'space-around', marginVertical: 20, cursor: "pointer",},
+
+    steps: {flexDirection: 'row', justifyContent: 'space-around', marginVertical: 20, cursor: "pointer"},
     stepComplete: {color: 'blue', fontSize: 24,},
     stepCurrent: {color: 'blue', fontSize: 24,},
-    stepIncomplete: {color: 'gray', fontSize: 24,},
+    stepIncomplete: {color: 'black', fontSize: 24,},
+
     section: {marginVertical: 10, alignItems: 'center',},
     label: {fontSize: 18, color: '#333', marginBottom: 10, fontWeight: "bold",},
+
     textArea: {
         width: '30%',
         height: 50,
@@ -43,99 +47,8 @@ const style = StyleSheet.create({
         color: 'white',
     },
 
-    sfondo:{
-        backgroundColor: "#89bedc",
-        height: '100%',
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-    },
-    titoli:{
-        color: '#0B3B57FF',
-        fontSize: 24,
-        fontWeight: 'bold',
-        bottom: 5
-    },
-    blocco1:{
-        top: 50
-    },
-    blocco2:{
-        top: 150
-    },
-    blocco3:{
-        top: 300
-    },
-    input:{
-      backgroundColor: '#0B3B57FF',
-        color: '#89bedc',
-        height: 40,
-        padding: 5,
-        borderRadius: 15,
-        textAlign: 'center',
-    },
-    barramenu:{
-        backgroundColor: '#0B3B57FF',
-        height: 40,
-        padding: 5,
-        borderRadius: 15,
-    },
-    textbarramenu:{
-        color: '#89bedc',
-        textAlign: 'center',
-        fontSize: 20,
-    },
-    menu:{
-        backgroundColor: '#174b69',
-        borderRadius: 10,
-    },
-    elementomenu:{
-        color: '#89bedc',
-        padding: 10,
-        fontSize: 16,
-        textAlign: 'center',
-    },
-    button:{
-        backgroundColor: '#0B3B57FF',
-        color: '#89bedc',
-        height: 40,
-        width: 80,
-        borderRadius: 10,
-        fontSize: 16,
-        textAlign: 'center',
-        justifyContent: 'center',
-    },
 
-
-    dropdownButton: {
-        padding: 10,
-        backgroundColor: '#f0f0f0',
-        borderRadius: 5,
-        alignItems: 'center',
-    },
-    dropdownButtonText: {
-        fontSize: 22,
-        color: 'black',
-        borderColor: 'black',
-        borderWidth: 1,
-        padding: 8,
-        borderRadius: 5
-
-    },
-    dropdownMenu: {
-        backgroundColor: 'white',
-        borderWidth: 1,
-        borderColor: '#ddd',
-        borderRadius: 5,
-        marginTop: 5,
-    },
-    dropdownItem: {
-        padding: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ddd',
-    },
-    dropdownItemText: {
-        fontSize: 16,
-    },
 });
 
+// @ts-ignore
 export {style};

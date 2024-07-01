@@ -61,7 +61,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
                         <Text style={style.stepIncomplete}>○</Text>
                         <Text style={style.stepIncomplete}>○</Text>
                     </View>
-                    <View style={style.section_group}>
+                    <View>
                         <View style={style.section}>
                             <Text style={style.label}>Impostare il tempo della sosta:</Text>
                             <TextInput
