@@ -34,8 +34,6 @@ const style = StyleSheet.create({
     linkText: {fontSize: 18, color: 'blue', marginBottom: 10,},
     nextButton: {
         paddingTop: 30,
-        width: 80,
-        height: 80,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -68,7 +66,19 @@ const style = StyleSheet.create({
         padding: 10,
         fontSize: 16,
         textAlign: 'center',
+    }, bg_style: {
+        width: '100%',
+        opacity: .5
     },
+    starting_btn: {
+        display: 'flex',
+        width: '100%',
+        height: "100vh",
+        paddingTop: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
+
 
 });
 
