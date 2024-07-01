@@ -45,6 +45,7 @@ const PaymentForm = () => {
 
     return (
         <Layout style={styles.container}>
+
             <Card>
                 <Radio
                     style={styles.radio}
