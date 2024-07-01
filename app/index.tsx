@@ -45,7 +45,7 @@ const Index = () => {
                     justifyContent: "center",
                     gap: 8
                 }}>
-                    <Text style={{color: "#3895ff", fontWeight: "bold", fontSize: 32}}>Sei arrivato!</Text>
+                    <Text style={{color: "#3895ff", fontWeight: "bold", fontSize: 32}}>You've arrived to the destination</Text>
                     <Pressable onPress={() => router.push("/flusso-pagamento/Pagina-1")}
                                style={{display: "flex", flexDirection: "row", alignItems: "center", gap: 8}}>
                         <Text style={{
@@ -59,7 +59,7 @@ const Index = () => {
                             paddingHorizontal: 16,
                             borderRadius: 16
                         }}>
-                            Vai al pagamento
+                            Proceed to payment
                         </Text>
                     </Pressable>
                 </View>
