@@ -94,6 +94,10 @@ const styles = StyleSheet.create({
         width: "40%",
         borderRadius: 16,
         backgroundColor: "white",
+        shadowRadius: 16,
+        shadowColor: "black",
+        borderColor: "white"
+
     },
 });
 
