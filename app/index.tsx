@@ -1,5 +1,5 @@
 import React from "react";
-import {ImageBackground, Text, View} from "react-native"
+import {ImageBackground, Text, TextInput, View, StyleSheet} from "react-native"
 import {router, Stack} from "expo-router";
 // @ts-ignore
 import backgroundImage from './flusso-pagamento/assets/parcheggi.png';
@@ -32,6 +32,20 @@ const Index = () => {
                         Parcheggio SanGiovanni
                     </Text>
                 </Pressable>
+                <View style={{
+                    position: "absolute",
+                    height: 169,
+                    width: "100%",
+                    top: 50,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 8
+                }}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Go to"
+                    />
+                </View>
                 <View style={{
                     position: "absolute",
                     height: 169,
@@ -70,5 +84,17 @@ const Index = () => {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        width: "40%",
+        borderRadius: 16,
+        backgroundColor: "white",
+    },
+});
 
 export default Index
